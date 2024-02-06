@@ -24,6 +24,9 @@
 set(INSTALL_DEFAULT_BINDIR "bin" CACHE STRING "Appended to CMAKE_INSTALL_PREFIX")
 
 find_package(FFTW REQUIRED)
+include_directories(${FFTW_INCLUDES})
+get_filename_component(FFTW_LIBRARY_DIRS ${FFTW_LIBRARIES} DIRECTORY)
+link_directories(${FFTW_LIBRARY_DIRS})
 
 SET(TOOLS
 	hackrf_transfer
@@ -34,6 +37,7 @@ SET(TOOLS
 	hackrf_clock
 	hackrf_sweep
 	hackrf_operacake
+	hackrf_biast
 )
 
 if(MSVC)

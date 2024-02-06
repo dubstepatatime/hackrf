@@ -1,4 +1,5 @@
 /*
+ * Copyright 2012-2022 Great Scott Gadgets <info@greatscottgadgets.com>
  * Copyright 2012 Jared Boone
  * Copyright 2013 Benjamin Vernoux
  *
@@ -25,8 +26,13 @@
 
 #include <stdbool.h>
 
-extern volatile bool start_cpld_update;
+#include <usb_type.h>
+#include <usb_request.h>
 
 void cpld_update(void);
+
+usb_request_status_t usb_vendor_request_cpld_checksum(
+	usb_endpoint_t* const endpoint,
+	const usb_transfer_stage_t stage);
 
 #endif /* end of include guard: __USB_API_CPLD_H__ */
