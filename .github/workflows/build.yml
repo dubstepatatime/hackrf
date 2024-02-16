@@ -1,4 +1,5 @@
 name: Build
+name: HackRFV5
 
 on:
   push:
